@@ -745,7 +745,7 @@ void retro_set_environment(retro_environment_t cb)
     option_key = "b2_joypad_";
     option_key += iterbm->first;
     option_val = "Key for controller button ";
-    option_val += iterbm->first;
+    option_val += ReplaceAll(iterbm->first,"_"," ");
     option_val += "; ";
     option_val += key_options;
     //log_cb(RETRO_LOG_DEBUG, "Env var %d: %s -- %s\n",i, option_key.c_str(), option_val.c_str());

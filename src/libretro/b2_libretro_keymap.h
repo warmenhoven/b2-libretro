@@ -241,14 +241,23 @@ const std::map<std::string, unsigned> joypad_buttonmap = {
     {"R2",    RETRO_DEVICE_ID_JOYPAD_R2},
     {"L3",    RETRO_DEVICE_ID_JOYPAD_L3},
     {"R3",    RETRO_DEVICE_ID_JOYPAD_R3},
-    {"Left Analog - Left",   RETRO_DEVICE_ID_JOYPAD_LEFT  + 16},
-    {"Left Analog - Right",  RETRO_DEVICE_ID_JOYPAD_RIGHT + 16},
-    {"Left Analog - Up",     RETRO_DEVICE_ID_JOYPAD_UP    + 16},
-    {"Left Analog - Down",   RETRO_DEVICE_ID_JOYPAD_DOWN  + 16},
-    {"Right Analog - Left",  RETRO_DEVICE_ID_JOYPAD_LEFT  + 32},
-    {"Right Analog - Right", RETRO_DEVICE_ID_JOYPAD_RIGHT + 32},
-    {"Right Analog - Up",    RETRO_DEVICE_ID_JOYPAD_UP    + 32},
-    {"Right Analog - Down",  RETRO_DEVICE_ID_JOYPAD_DOWN  + 32},
+    {"Left_Analog_-_Left",   RETRO_DEVICE_ID_JOYPAD_LEFT  + 16},
+    {"Left_Analog_-_Right",  RETRO_DEVICE_ID_JOYPAD_RIGHT + 16},
+    {"Left_Analog_-_Up",     RETRO_DEVICE_ID_JOYPAD_UP    + 16},
+    {"Left_Analog_-_Down",   RETRO_DEVICE_ID_JOYPAD_DOWN  + 16},
+    {"Right_Analog_-_Left",  RETRO_DEVICE_ID_JOYPAD_LEFT  + 32},
+    {"Right_Analog_-_Right", RETRO_DEVICE_ID_JOYPAD_RIGHT + 32},
+    {"Right_Analog_-_Up",    RETRO_DEVICE_ID_JOYPAD_UP    + 32},
+    {"Right_Analog_-_Down",  RETRO_DEVICE_ID_JOYPAD_DOWN  + 32},
 };
+
+std::string ReplaceAll(std::string str, const std::string& from, const std::string& to) {
+    size_t start_pos = 0;
+    while((start_pos = str.find(from, start_pos)) != std::string::npos) {
+        str.replace(start_pos, from.length(), to);
+        start_pos += to.length(); // Handles case where 'to' is a substring of 'from'
+    }
+    return str;
+}
 
 #endif
